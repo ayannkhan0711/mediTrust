@@ -1,0 +1,14 @@
+{
+  "name": "meditrust",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "ayaan f khan",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server/server.js",
+     "dev": "node --watch server/server.js"
+
+  }
+}
