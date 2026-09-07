@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const userSchema = new mongoose.schema(
+const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -25,15 +25,14 @@ const userSchema = new mongoose.schema(
     },
     gender: {
       type: String,
-      enum: ["MALE ", "FEMALE"],
-      required: [true, "Please Enter Gender!"],
+      enum: ["MALE", "FEMALE"],
     },
     address: {
       type: String,
     },
     userType: {
       type: String,
-      enum: ["USER ", "DOCTOR", "PATHOLOGOIST", "ADMIN"],
+      enum: ["USER", "DOCTOR", "PATHOLOGIST", "ADMIN"],
       default: "USER",
       required: true,
     },
@@ -44,10 +43,9 @@ const userSchema = new mongoose.schema(
     },
   },
   {
-    timestamp: true,
+    timestamps: true,
   },
 );
 
-
-const User = mongoose.model('USER' , userSchema)
-export default User
+const User = mongoose.model("USER", userSchema);
+export default User;

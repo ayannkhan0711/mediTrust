@@ -1,13 +1,13 @@
-import express from "express"
+import express from "express";
 
+import authService from "../controller/auth/authController.js";
+import protect from "../middleware/authMiddleware.js";
 
-import authService  from "../controller/auth/authController.js"
+const router = express.Router();
 
+router.post("/register", authService.registerUser);
+router.post("/login", authService.loginUser);
+router.get("/me", protect.forUser, authService.getMyprofile);
+router.put("/me", protect.forUser, authService.updateProfile);
 
-const router = express.Router()
-
-router.post("/register" , authService.registerUser)
-router.post("/login" , authService.loginUser)
-
-
-export default router
+export default router;
