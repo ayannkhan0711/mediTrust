@@ -17,6 +17,9 @@ import aiRoutes from "./routes/aiRoutes.js"
 
 import productRoutes from "./routes/productRoutes.js"
 
+import pathologistRoutes from "./routes/pathologistRoutes.js"
+
+
 
 const PORT = process.env.PORT || 5000
 const app = express()
@@ -48,6 +51,9 @@ app.use ("/api/ai" , aiRoutes)
 app.use("/api/products" , productRoutes)
 
 
+//pathologist Routes 
+
+app.use("/api/pathologist" , pathologistRoutes)
 
 
 

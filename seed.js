@@ -149,6 +149,22 @@ const pathologistsData = [
     experience: 8,
     specialization: ["Hematology", "Microbiology"],
     consultationFee: 500,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Priya Sharma",
@@ -161,6 +177,22 @@ const pathologistsData = [
     experience: 12,
     specialization: ["Histopathology", "Cytology"],
     consultationFee: 600,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Rahul Verma",
@@ -173,6 +205,22 @@ const pathologistsData = [
     experience: 5,
     specialization: ["Clinical Pathology"],
     consultationFee: 400,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Sneha Patel",
@@ -185,6 +233,22 @@ const pathologistsData = [
     experience: 10,
     specialization: ["Hematology", "Biochemistry"],
     consultationFee: 550,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Vikram Singh",
@@ -197,6 +261,22 @@ const pathologistsData = [
     experience: 15,
     specialization: ["Microbiology", "Immunology"],
     consultationFee: 700,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Anjali Mehta",
@@ -209,6 +289,22 @@ const pathologistsData = [
     experience: 7,
     specialization: ["Cytology", "Histopathology"],
     consultationFee: 500,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Karan Malhotra",
@@ -221,6 +317,22 @@ const pathologistsData = [
     experience: 6,
     specialization: ["Clinical Pathology", "Hematology"],
     consultationFee: 450,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Neha Gupta",
@@ -233,6 +345,22 @@ const pathologistsData = [
     experience: 9,
     specialization: ["Microbiology"],
     consultationFee: 500,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Rohan Kapoor",
@@ -245,6 +373,22 @@ const pathologistsData = [
     experience: 11,
     specialization: ["Biochemistry", "Hematology"],
     consultationFee: 600,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Kavita Joshi",
@@ -257,6 +401,22 @@ const pathologistsData = [
     experience: 4,
     specialization: ["Cytology"],
     consultationFee: 400,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Aditya Rao",
@@ -269,6 +429,22 @@ const pathologistsData = [
     experience: 14,
     specialization: ["Histopathology", "Microbiology"],
     consultationFee: 650,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Pooja Nair",
@@ -281,6 +457,22 @@ const pathologistsData = [
     experience: 8,
     specialization: ["Clinical Pathology"],
     consultationFee: 500,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Manish Tiwari",
@@ -293,6 +485,22 @@ const pathologistsData = [
     experience: 13,
     specialization: ["Hematology", "Immunology"],
     consultationFee: 600,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Shruti Agarwal",
@@ -305,6 +513,22 @@ const pathologistsData = [
     experience: 6,
     specialization: ["Biochemistry"],
     consultationFee: 450,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Deepak Chauhan",
@@ -317,6 +541,22 @@ const pathologistsData = [
     experience: 10,
     specialization: ["Microbiology", "Clinical Pathology"],
     consultationFee: 550,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Ritu Bansal",
@@ -329,6 +569,22 @@ const pathologistsData = [
     experience: 5,
     specialization: ["Cytology", "Hematology"],
     consultationFee: 400,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Suresh Iyer",
@@ -341,6 +597,22 @@ const pathologistsData = [
     experience: 16,
     specialization: ["Histopathology", "Biochemistry"],
     consultationFee: 700,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Meera Desai",
@@ -353,6 +625,22 @@ const pathologistsData = [
     experience: 7,
     specialization: ["Immunology"],
     consultationFee: 500,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Arjun Reddy",
@@ -365,6 +653,22 @@ const pathologistsData = [
     experience: 9,
     specialization: ["Clinical Pathology", "Microbiology"],
     consultationFee: 550,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
   {
     name: "Dr. Isha Kulkarni",
@@ -377,6 +681,22 @@ const pathologistsData = [
     experience: 8,
     specialization: ["Hematology", "Cytology"],
     consultationFee: 500,
+    workingHours : {
+      start : "09:00",
+      end: "10:00"
+    }, 
+    availableDays: [
+      "Monday",
+      "tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+
+    ],
+
+  isVerified: true,
+  isActive: true,
   },
 ];
 

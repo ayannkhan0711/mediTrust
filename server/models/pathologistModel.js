@@ -32,14 +32,14 @@ const pathologistSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    specialization: {
-      type: [String], // e.g. ["Hematology", "Microbiology"]
-      default: [],
-    },
+    specialization: [
+      {
+      type: String,
+    }
+  ],
     phone: {
       type: String,
-      required: true,
-      unique: true,
+      
     },
     email: {
       type: String,
