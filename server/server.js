@@ -15,6 +15,7 @@ import adminRoutes  from "./routes/adminRoutes.js"
 
 import aiRoutes from "./routes/aiRoutes.js"
 
+import productRoutes from "./routes/productRoutes.js"
 
 
 const PORT = process.env.PORT || 5000
@@ -42,6 +43,11 @@ app.use("/api/admin" , adminRoutes)
 app.use ("/api/ai" , aiRoutes)
 
 
+// Product Routes 
+
+app.use("/api/products" , productRoutes)
+
+
 
 
 
@@ -50,3 +56,4 @@ app.use ("/api/ai" , aiRoutes)
 app.listen(PORT , () => {
     console.log(`SERVER IS RUNNING AT PORT : ${PORT} `.bgBlue)
 })
+
