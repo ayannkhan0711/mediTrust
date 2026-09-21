@@ -163,6 +163,24 @@ const getAllPathologyTest  = async (req , res ) => {
 }
 
 
+const getAllPathologist  = async (req , res ) => {
+   
+
+    const pathologist= await Pathologist.find().populate("user")
+   
+
+
+    if(!pathologist){
+        res.status(404)
+        throw new Error("pathologist Does not exists");
+        
+    }
+
+    
+    res.status(200).json(pathologist)
+}
+
+
 const bookTest = async (req , res ) => {
 
 
@@ -202,6 +220,6 @@ res.status(201).json(testBooking)
 
 
 
-const pathologistController = { becomePathologist , addPathologyTest , bookTest , geAllAppointments , updateAppointment, getAppointment, getAllPathologyTest};
+const pathologistController = { becomePathologist , addPathologyTest , bookTest , geAllAppointments , updateAppointment, getAppointment, getAllPathologyTest, getAllPathologist};
 
 export default pathologistController;

@@ -19,8 +19,14 @@ router.get(
 
 router.get(
     "/tests",
-    protect.forUser,
     pathologistController.getAllPathologyTest
+    
+);
+
+
+router.get(
+    "/",
+    pathologistController.getAllPathologist
     
 );
 

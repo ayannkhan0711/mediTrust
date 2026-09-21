@@ -18,6 +18,7 @@ import aiRoutes from "./routes/aiRoutes.js"
 import productRoutes from "./routes/productRoutes.js"
 
 import pathologistRoutes from "./routes/pathologistRoutes.js"
+import errorHandler from "./middleware/errorHandler.js"
 
 
 
@@ -56,7 +57,10 @@ app.use("/api/products" , productRoutes)
 app.use("/api/pathologist" , pathologistRoutes)
 
  // singular "pathologist"
-app.use("/api/pathologist" , pathologistRoutes)  
+app.use("/api/pathologist" , pathologistRoutes) 
+
+//Error Handler
+app.use(errorHandler)
 
 
 

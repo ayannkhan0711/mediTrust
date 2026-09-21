@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseURL}}/api/pathologist/"
+method: GET
+body:
+  type: urlencoded
+  content:
+    pathologyTest: 6aa31f112db7f979138e9d03
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0tdn}}"
+order: 4416034829496656
