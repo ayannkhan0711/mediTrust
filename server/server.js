@@ -25,7 +25,7 @@ const PORT = process.env.PORT || 5000
 const app = express()
 
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 //DB Connection
 connectDB()
@@ -55,7 +55,8 @@ app.use("/api/products" , productRoutes)
 
 app.use("/api/pathologist" , pathologistRoutes)
 
-
+ // singular "pathologist"
+app.use("/api/pathologist" , pathologistRoutes)  
 
 
 

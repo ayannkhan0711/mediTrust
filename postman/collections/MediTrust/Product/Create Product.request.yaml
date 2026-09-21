@@ -1,0 +1,31 @@
+$kind: http-request
+url: "{{baseURL}}/api/admin/product"
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: name
+      value: parcetamol
+    - type: text
+      key: description
+      value: fever
+    - type: text
+      key: price
+      value: "20"
+    - type: text
+      key: stock
+      value: "150"
+    - type: text
+      key: expiresOn
+      value: 01-sept-2027
+    - type: file
+      key: image
+      src:
+        - /Users/apple/Downloads/paracetamol.jpg
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_14d2}}"
+settings: {}
+order: 6000

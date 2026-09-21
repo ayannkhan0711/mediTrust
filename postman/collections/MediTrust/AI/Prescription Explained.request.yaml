@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseURL}}/api/ai/prescription"
+method: POST
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_05ke}}"
+order: 1000

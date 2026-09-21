@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{baseURL}}/api/admin/product/6a9f32e6e6e34f10a472eca6"
+method: PUT
+body:
+  type: urlencoded
+  content:
+    description: medicine for fever
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_14dd}}"
+settings: {}
+order: 7000

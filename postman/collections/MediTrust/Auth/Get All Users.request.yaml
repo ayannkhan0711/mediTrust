@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseURL}}/api/admin/users"
+method: GET
+body:
+  type: urlencoded
+  content:
+    "age ": "64"
+    gender: maie
+    address: mhow
+    userType: ADMIN
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0l5n}}"
+order: 5000

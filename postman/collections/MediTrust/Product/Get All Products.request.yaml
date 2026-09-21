@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{baseURL}}/api/admin/products"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_14dd}}"
+settings: {}
+order: 3000

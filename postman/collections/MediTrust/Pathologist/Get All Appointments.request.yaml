@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseURL}}/api/pathologist/appointments"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: '{{pathologist_token}}'
+order: 4001544613612484

@@ -1,0 +1,10 @@
+workspace:
+  id: d6d13afd-6bf5-46d7-8772-f0ccf734157e
+cloudResources:
+  collections:
+    ../postman/collections/MediTrust: 57643880-a3f6a7d1-059c-4451-b831-d97f8dcdd6f1
+    ../postman/collections/My Collection: 57643880-b46efa1a-d66a-4f64-9297-4900b9810757
+  environments:
+    ../postman/environments/meditrust.environment.yaml: 57643880-74a121de-2b4a-4f1d-8fb5-34ad2d08ca95
+  globals:
+    ../postman/globals/workspace.globals.yaml: 5b93ae41-8374-41a5-8260-bc85af094d43

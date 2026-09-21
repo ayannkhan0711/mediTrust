@@ -1,0 +1,22 @@
+$kind: http-request
+name: Login Pathologist
+url: '{{baseURL}}/api/auth/login'
+method: POST
+body:
+  type: urlencoded
+  content:
+    - key: email
+      value: ayaan.khan@meditrust.com
+    - key: password
+      value: 'Pathology@123'
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |
+      const res = pm.response.json();
+      if (res.token) {
+          pm.collectionVariables.set("pathologist_token", res.token);
+          pm.variables.set("pathologist_token", res.token);
+          console.log("Pathologist token saved to collection variable: pathologist_token");
+      }
+order: 999

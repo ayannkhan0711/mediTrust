@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{baseURL}}/api/admin/pathologists/6aa1209364368b8eb235e6c1?isVerified=false"
+method: PUT
+queryParams:
+  - key: isVerified
+    value: "false"
+    disabled: false
+    description: ""
+body:
+  type: urlencoded
+  content:
+    isVerified: "true"
+auth:
+  type: bearer
+  credentials:
+    token: "{{supabase_service_role_api_key_0tdn}}"
+settings: {}
+order: 5000

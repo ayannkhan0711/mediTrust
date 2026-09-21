@@ -1,0 +1,46 @@
+$kind: collection
+description: ""
+variables:
+  - key: baseURL
+    value: ""
+    disabled: false
+    secret: false
+  - key: json_web_token_0i3u
+    secret: true
+    disabled: false
+  - key: json_web_token_14d2
+    secret: true
+    disabled: false
+  - key: json_web_token_0v9s
+    secret: true
+    disabled: false
+  - key: supabase_service_role_api_key_14dd
+    secret: true
+    disabled: false
+  - key: json_web_token_14dd
+    secret: true
+    disabled: false
+  - key: supabase_service_role_api_key_05ke
+    secret: true
+    disabled: false
+  - key: supabase_service_role_api_key_0l5n
+    secret: true
+    disabled: false
+  - key: json_web_token_1dr8
+    secret: true
+    disabled: false
+  - key: json_web_token_03lg
+    secret: true
+    disabled: false
+  - key: supabase_service_role_api_key_03lg
+    secret: true
+    disabled: false
+  - key: supabase_service_role_api_key_0tdn
+    secret: true
+    disabled: false
+  - key: json_web_token_0a33
+    secret: true
+    disabled: false
+  - key: pathologist_token
+    secret: true
+    disabled: false

@@ -1,0 +1,6 @@
+name: meditrust
+color: null
+values:
+  - key: baseURL
+    value: ""
+    enabled: true

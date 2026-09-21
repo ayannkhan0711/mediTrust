@@ -1,0 +1,15 @@
+$kind: http-request
+url: '{{baseURL}}/api/pathologist/add'
+method: POST
+order: 4229993215295548
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "title": "Blood Test",
+      "description": "Complete blood count test",
+      "price": 500
+    }

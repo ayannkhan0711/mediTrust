@@ -2,6 +2,7 @@ import fs from "fs"
 import uploadOnCloudinary from "../../middleware/cloudinaryMiddleware.js";
 import Product from "../../models/productModel.js";
 import User from "../../models/userModel.js"
+import Pathologist from "../../models/pathologistModel.js";
 
 const getAllUser = async(req , res) => {
     const users = await User.find()
@@ -88,7 +89,36 @@ res.status(200).json(updatedProduct)
 }
 
 
+const getAllPathologists = async (req, res) => {
+    const pathologists = await Pathologist.find().populate('user')
 
+    if (!pathologists || pathologists.length === 0) {
+        res.status(404)
+        throw new Error("Pathologist Not Found");
+    }
+
+    res.status(200).json(pathologists)
+}
+
+
+const updatePathologists = async (req, res) => {
+
+    const { isVerified } = req.body
+    const pid = req.params.id
+
+    const pathologist = await Pathologist.findByIdAndUpdate(pid, { isVerified }, { new: true }).populate('user')
+
+    if (!pathologist) {
+        res.status(409)
+        throw new Error("Pathologist Not Updated")
+    }
+
+    if (isVerified) {
+        await User.findByIdAndUpdate(pathologist.user._id, { userType: "PATHOLOGIST" }, { new: true })
+    }
+
+    res.status(200).json(pathologist)
+}
 
 
 
@@ -98,6 +128,8 @@ const adminService = {
     getAllProducts,
     addProduct,
     updateProduct,
+    getAllPathologists,
+    updatePathologists,
 }
 
 export default adminService

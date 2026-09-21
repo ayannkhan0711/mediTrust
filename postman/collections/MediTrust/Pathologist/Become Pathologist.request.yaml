@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseURL}}/api/admin/pathologists/6aa1209364368b8eb235e6c1"
+method: PUT
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_0a33}}"
+order: 1000

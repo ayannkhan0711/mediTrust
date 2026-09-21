@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{baseURL}}/api/auth/me"
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{json_web_token_1dr8}}"
+settings: {}
+order: 1000

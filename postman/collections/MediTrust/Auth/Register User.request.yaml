@@ -1,0 +1,13 @@
+$kind: http-request
+url: "{{baseURL}}/api/auth/register"
+method: POST
+body:
+  type: urlencoded
+  content:
+    name: moon
+    email: khanayan4505@gmail.com
+    phone: "7067758795"
+    password: "6261471612"
+    age: "19"
+settings: {}
+order: 4000
