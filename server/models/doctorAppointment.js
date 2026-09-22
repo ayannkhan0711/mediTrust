@@ -16,7 +16,7 @@ const doctorAppointmentSchema = new mongoose.Schema(
     
     status: {
         type : String,
-        enums : ["pending" , "delivered" , "cancelled"],
+        enums : ["pending" , "confirmed" , "cancelled"],
         default : "pending"
     },
   },
@@ -26,6 +26,6 @@ const doctorAppointmentSchema = new mongoose.Schema(
 );
 
 
-const DoctorAppointment = mongoose.model("DoctorAppointment" , doctorAppointmentSchemaå)
+const DoctorAppointment = mongoose.model("DoctorAppointment" , doctorAppointmentSchema)
 
 export default DoctorAppointment

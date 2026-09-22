@@ -4,6 +4,7 @@ import Product from "../../models/productModel.js";
 import User from "../../models/userModel.js"
 import Pathologist from "../../models/pathologistModel.js";
 import Doctor from "../../models/doctorModel.js";
+import DoctorAppointment from "../../models/doctorAppointment.js";
 
 const getAllUser = async(req , res) => {
     const users = await User.find()
@@ -130,20 +131,32 @@ const updateDoctor = async (req, res) => {
     const { isVerified } = req.body
     const did = req.params.id
 
-    const doctor = await Doctor.findByIdAndUpdate(did, { isVerified }, { new: true }).populate('user')
+    const doctor = await Doctor.findByIdAndUpdate(did, { isVerified }, { new: true })
+        .populate('user')
 
     if (!doctor) {
-        res.status(409)
-        throw new Error("Doctor Not Updated")
+        res.status(404)
+        throw new Error("Doctor Not Found")
     }
 
     if (isVerified) {
-        await User.findByIdAndUpdate(doctor.user, { userType: "DOCTOR" }, { new: true })
+        await User.findByIdAndUpdate(doctor.user._id, { userType: "DOCTOR" }, { new: true })
     }
 
     res.status(200).json(doctor)
 }
 
+
+const getAllAppointments = async (req, res) => {
+    const appointments = await DoctorAppointment.find().populate('user')
+
+    if (!appointments ) {
+        res.status(404)
+        throw new Error("Appointments Not Found");
+    }
+
+    res.status(200).json(appointments)
+}
 
 
 
@@ -154,7 +167,8 @@ const adminService = {
     updateProduct,
     getAllPathologists,
     updatePathologists,
-    updateDoctor
+    updateDoctor,
+    getAllAppointments
 }
 
 export default adminService

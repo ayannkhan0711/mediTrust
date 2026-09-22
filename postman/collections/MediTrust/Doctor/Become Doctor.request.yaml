@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{baseURL}}/api/doctor/request"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "clinicName": "Al Shifa Clinic",
+      "Address": "Jinsi, Indore, MP",
+      "qualification": "MBBS, MD General Medicine",
+      "registrationNumber": "MP-DOC-2024-001",
+      "experience": 10,
+      "specialization": ["General Medicine", "Family Care"],
+      "phone": "9876500011",
+      "email": "alshifa.clinic@meditrust.com",
+      "consultationFee": 350,
+      "workingHours": {
+        "startTime": "10:00 AM",
+        "endTime": "07:00 PM"
+      },
+      "availableDays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    }
+order: 1609918851834760

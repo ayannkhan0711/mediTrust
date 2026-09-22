@@ -13,7 +13,7 @@ const doctorSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    Address: {
+    address: {
       type: String,
       required: true,
       trim: true,

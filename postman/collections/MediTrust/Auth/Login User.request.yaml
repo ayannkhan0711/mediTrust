@@ -6,10 +6,12 @@ headers:
   email: ayan@gmail.com
   password: "98765"
 body:
-  type: urlencoded
-  content:
-    email: admin@medai.com
-    password: Admin@123
+  type: json
+  content: |-
+    {
+      "email": "admin@medai.com",
+      "password": "Admin@123"
+    }
 auth:
   type: bearer
 settings: {}

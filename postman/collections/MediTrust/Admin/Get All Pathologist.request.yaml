@@ -9,4 +9,4 @@ auth:
   type: bearer
   credentials:
     token: "{{supabase_service_role_api_key_0tdn}}"
-order: 4416034829496656
+order: 3638729505489974

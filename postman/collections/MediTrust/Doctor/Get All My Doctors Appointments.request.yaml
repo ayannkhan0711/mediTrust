@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseURL}}/api/doctor/appointments"
+method: GET
+order: 3147738859841012

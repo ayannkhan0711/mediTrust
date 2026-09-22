@@ -1,6 +1,7 @@
-import DoctorAppointment from "../../models/doctorAppointment";
-import Doctor from "../../models/doctorModel";
-import User from "../../models/userModel";
+import DoctorAppointment from "../../models/doctorAppointment.js";
+import Doctor from "../../models/doctorModel.js";
+import User from "../../models/userModel.js";
+
 
 const becomeDoctor = async (req, res) => {
 
@@ -76,7 +77,7 @@ const updateAppointment = async (req , res ) => {
         
     }
 
-    const updatedappointment = await DoctorAppointment.findByIdAndUpdate(appointmentId , req.body , {new : true} )
+    const updatedappointment = await DoctorAppointment.findByIdAndUpdate(appointmentId , req.body , {new : true} ).populate('user').populate('doctor')
 
      if(!updatedappointment){
         res.status(409)

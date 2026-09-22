@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseURL}}/api/doctor/appointments/6ab2e755708ade49e63f29f9"
+method: GET
+body:
+  type: urlencoded
+  content:
+    status: confirmed
+order: 3916502178897531

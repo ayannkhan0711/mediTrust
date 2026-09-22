@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseURL}}/api/doctor"
+method: GET
+order: 1790107005780

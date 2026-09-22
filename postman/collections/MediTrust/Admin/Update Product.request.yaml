@@ -10,4 +10,4 @@ auth:
   credentials:
     token: "{{supabase_service_role_api_key_14dd}}"
 settings: {}
-order: 7000
+order: 4423582964785202

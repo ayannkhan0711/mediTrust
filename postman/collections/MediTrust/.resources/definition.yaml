@@ -44,3 +44,12 @@ variables:
   - key: pathologist_token
     secret: true
     disabled: false
+  - key: json_web_token_0nru
+    secret: true
+    disabled: false
+  - key: json_web_token_043b
+    secret: true
+    disabled: false
+  - key: json_web_token_0uix
+    secret: true
+    disabled: false
