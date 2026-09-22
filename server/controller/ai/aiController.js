@@ -54,11 +54,15 @@ async function generateWithRetry(contents, maxRetries = 3) {
       });
     } catch (err) {
       const isRetryable = err.status === 503 || err.status === 429;
+
       if (!isRetryable || attempt === maxRetries) throw err;
+
       const delay = attempt * 1000;
+
       console.warn(
         `Gemini ${err.status}, retrying in ${delay}ms (attempt ${attempt}/${maxRetries})`,
       );
+
       await new Promise((r) => setTimeout(r, delay));
     }
   }
@@ -74,7 +78,10 @@ const explainPrescription = async (req, res) => {
 
     console.log(req.file);
 
-    const imagePart = fileToGenerativePart(req.file.path, req.file.mimetype);
+    const imagePart = fileToGenerativePart(
+      req.file.path,
+      req.file.mimetype,
+    );
 
     const result = await generateWithRetry([
       { text: EXTRACTION_PROMPT },
@@ -90,10 +97,13 @@ const explainPrescription = async (req, res) => {
     }
 
     let parsed;
+
     try {
       parsed = JSON.parse(rawText);
     } catch {
-      parsed = JSON.parse(rawText.replace(/```json|```/g, "").trim());
+      parsed = JSON.parse(
+        rawText.replace(/```json|```/g, "").trim(),
+      );
     }
 
     const prescription = new Prescription({
@@ -109,48 +119,164 @@ const explainPrescription = async (req, res) => {
     await prescription.save();
     await prescription.populate("user");
 
-    res.status(200).json({ prescription });
+    return res.status(200).json({ prescription });
+
   } catch (err) {
     console.error("Gemini extraction failed:", err);
+
     if (req.file && fs.existsSync(req.file.path)) {
       fs.unlinkSync(req.file.path);
     }
-    res
-      .status(500)
-      .json({
-        success: false,
-        error: "Extraction failed",
-        details: err.message,
-      });
+
+    return res.status(500).json({
+      success: false,
+      error: "Extraction failed",
+      details: err.message,
+    });
   }
 };
 
 const findMedicines = async (req, res) => {
+  const pid = req.params.pid;
 
-  const pid = req.params.pid
+  try {
+    const products = await Product.find();
 
+    const pathologists = await Pathologist.find();
 
+    const prescription = await Prescription.findById(pid);
 
-  const products = await Product.find();
+    if (!prescription) {
+      return res.status(404).json({
+        message: "Prescription not found",
+      });
+    }
 
-  const pathologists = await Pathologist.find();
+    const MEDICINE_FOUNDER_PROMPT = `
+You are a healthcare inventory matching assistant.
 
- const prescription = await Prescription.findById(pid);
+Your task is to analyze prescription data and compare the prescribed medicines and medical tests with the available pharmacy and laboratory inventory.
 
-if (!prescription) {
-  return res.status(404).json({
-    message: "Prescription not found",
-  });
+IMPORTANT RULES:
+
+1. Match each prescribed medicine with the available medicine/product by name.
+2. Consider reasonable variations such as brand name, generic name, capitalization, and minor spelling differences.
+3. Do NOT assume two medicines are the same only because they have a similar purpose.
+4. If you are not confident that a medicine is the same, mark it as "not_available".
+5. A medicine is "available" only when a confident match exists AND stock is greater than 0.
+6. Match each prescribed medical test with the available laboratory/test data.
+7. A test is "available" only when a confident match exists and the test is currently available.
+8. Do NOT recommend alternative medicines.
+9. Do NOT change or modify the prescribed dosage, frequency, duration, or instructions.
+10. Do NOT provide medical advice or diagnosis.
+11. Do NOT invent medicines, tests, prices, stock, IDs, or any other information.
+12. If a prescribed medicine or test cannot be found, mark it as "not_available".
+13. Preserve the prescription information exactly as provided.
+14. Return ONLY valid JSON. Do not return markdown, explanations, or extra text.
+
+RETURN EXACTLY THIS JSON STRUCTURE:
+
+{
+  "status": "success",
+  "medicines": {
+    "available": [
+      {
+        "prescribedName": "string",
+        "matchedProductName": "string",
+        "productId": "string",
+        "dosage": "string or null",
+        "frequency": "string or null",
+        "duration": "string or null",
+        "instructions": "string or null",
+        "stock": 0,
+        "price": 0
+      }
+    ],
+    "notAvailable": [
+      {
+        "prescribedName": "string",
+        "dosage": "string or null",
+        "frequency": "string or null",
+        "duration": "string or null",
+        "instructions": "string or null",
+        "reason": "Medicine not found in available inventory"
+      }
+    ]
+  },
+  "tests": {
+    "available": [
+      {
+        "testName": "string",
+        "matchedTestName": "string",
+        "testId": "string or null",
+        "price": 0
+      }
+    ],
+    "notAvailable": [
+      {
+        "testName": "string",
+        "reason": "Test not available"
+      }
+    ]
+  },
+  "summary": {
+    "totalMedicines": 0,
+    "availableMedicines": 0,
+    "unavailableMedicines": 0,
+    "totalTests": 0,
+    "availableTests": 0,
+    "unavailableTests": 0
+  }
 }
 
-res.json({
-  products,
-  pathologists,
-  medicines: prescription.medicines,
-});
+ADDITIONAL RULES:
 
+- If there are no prescribed tests, return an empty array for tests.
+- If there are no prescribed medicines, return empty medicine arrays.
+- If there are no available tests, mark all requested tests as "not_available".
+- If stock is 0 or less, the medicine must be "not_available".
+- Never use a similar medicine as a substitute.
+- Never create missing inventory data.
+- Keep all numeric values as numbers, not strings.
+- Always return valid JSON that can be directly parsed using JSON.parse().
 
-  res.json({ products, pathologists , medicines : prescription.medicines });
+PRESCRIPTION DATA:
+${JSON.stringify(prescription)}
+
+AVAILABLE MEDICINES:
+${JSON.stringify(products)}
+
+AVAILABLE TESTS:
+${JSON.stringify(pathologists)}
+`;
+
+    const response = await generateWithRetry([
+      { text: MEDICINE_FOUNDER_PROMPT },
+    ]);
+
+    const rawText = response.text;
+
+    let result;
+
+    try {
+      result = JSON.parse(rawText);
+    } catch {
+      result = JSON.parse(
+        rawText.replace(/```json|```/g, "").trim(),
+      );
+    }
+
+    return res.status(200).json(result);
+
+  } catch (error) {
+    console.error("Error In Getting Data From Server:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Error In Getting Data From Server",
+      error: error.message,
+    });
+  }
 };
 
 const aiController = {

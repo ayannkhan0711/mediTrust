@@ -3,6 +3,7 @@ import uploadOnCloudinary from "../../middleware/cloudinaryMiddleware.js";
 import Product from "../../models/productModel.js";
 import User from "../../models/userModel.js"
 import Pathologist from "../../models/pathologistModel.js";
+import Doctor from "../../models/doctorModel.js";
 
 const getAllUser = async(req , res) => {
     const users = await User.find()
@@ -123,6 +124,29 @@ const updatePathologists = async (req, res) => {
 
 
 
+
+const updateDoctor = async (req, res) => {
+
+    const { isVerified } = req.body
+    const did = req.params.id
+
+    const doctor = await Doctor.findByIdAndUpdate(did, { isVerified }, { new: true }).populate('user')
+
+    if (!doctor) {
+        res.status(409)
+        throw new Error("Doctor Not Updated")
+    }
+
+    if (isVerified) {
+        await User.findByIdAndUpdate(doctor.user, { userType: "DOCTOR" }, { new: true })
+    }
+
+    res.status(200).json(doctor)
+}
+
+
+
+
 const adminService = {
     getAllUser,
     getAllProducts,
@@ -130,6 +154,7 @@ const adminService = {
     updateProduct,
     getAllPathologists,
     updatePathologists,
+    updateDoctor
 }
 
 export default adminService
