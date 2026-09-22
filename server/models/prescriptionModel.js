@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const MedicineSchema = new mongoose.Schema(
+const medicineSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -31,7 +31,7 @@ const MedicineSchema = new mongoose.Schema(
   { _id: false }
 );
 
-const PrescriptionSchema = new mongoose.Schema(
+const prescriptionSchema = new mongoose.Schema(
   {
     patient_name: {
       type: String,
@@ -42,7 +42,7 @@ const PrescriptionSchema = new mongoose.Schema(
       default: null,
     },
     date: {
-      type: String, // kept as string since source format varies (e.g. "21/8/24")
+      type: String,
       default: null,
     },
     medicines: {
@@ -54,15 +54,17 @@ const PrescriptionSchema = new mongoose.Schema(
       default: null,
     },
     image: {
-      type: String, // Cloudinary URL
+      type: String,
       required: true,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // adjust/remove if you don't have a User model
+      ref: "User",
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Prescription", PrescriptionSchema);
+const Prescription = mongoose.model("Prescription", prescriptionSchema);
+
+export default Prescription;
