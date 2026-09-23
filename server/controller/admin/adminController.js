@@ -4,7 +4,7 @@ import Product from "../../models/productModel.js";
 import User from "../../models/userModel.js"
 import Pathologist from "../../models/pathologistModel.js";
 import Doctor from "../../models/doctorModel.js";
-import DoctorAppointment from "../../models/doctorAppointment.js";
+import DoctorAppointment from "../../models/doctorAppointmentModel.js"
 
 const getAllUser = async(req , res) => {
     const users = await User.find()

@@ -1,4 +1,4 @@
-import DoctorAppointment from "../../models/doctorAppointment.js";
+import DoctorAppointment from "../../models/doctorAppointmentModel.js";
 import Doctor from "../../models/doctorModel.js";
 import User from "../../models/userModel.js";
 

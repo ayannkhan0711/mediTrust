@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseURL}}/api/ai/chat"
+method: POST
+order: 3875914961905116

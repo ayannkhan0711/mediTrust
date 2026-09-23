@@ -26,6 +26,6 @@ const doctorAppointmentSchema = new mongoose.Schema(
 );
 
 
-const DoctorAppointment = mongoose.model("DoctorAppointment" , doctorAppointmentSchema)
+const DoctorAppointmentModel = mongoose.model("DoctorAppointment" , doctorAppointmentSchema)
 
-export default DoctorAppointment
+export default doctorAppointmentSchema

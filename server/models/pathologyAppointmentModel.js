@@ -30,6 +30,6 @@ const pathologyAppointmentSchema = new mongoose.Schema(
 );
 
 
-const PathologyAppointment = mongoose.model("PathologyAppointment" , pathologyAppointmentSchema)
+const PathologyAppointmentModel = mongoose.model("PathologyAppointment" , pathologyAppointmentSchema)
 
-export default PathologyAppointment
+export default PathologyAppointmentModel

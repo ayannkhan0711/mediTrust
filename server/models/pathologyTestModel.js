@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { ref } from "process";
+
 
 const pathlogyTestSchema = new mongoose.Schema({
 
@@ -31,6 +31,6 @@ required: true
 })
 
 
-const PathologyTest = mongoose.model("PathologyTest" , pathlogyTestSchema)
+const PathologyTestModel = mongoose.model("PathologyTest" , pathlogyTestSchema)
 
-export default PathologyTest
+export default PathologyTestModel
